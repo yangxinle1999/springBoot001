@@ -1,0 +1,39 @@
+#person:
+#  name: yang
+#  age: 21
+#  list:
+#    - lisi
+#    - yangxx
+#  map: {ll: k,hh: a}
+#  dog:
+#    name: gou
+#    age: 2
+#
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3366/springboot?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT
+    type: com.alibaba.druid.pool.DruidDataSource
+#    数据源其他配置,需要自己编写配置类进行设置
+#    initialSize:5
+#    minIdle:5
+    tomcat:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 1 from dual
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+
+
+#说明全局配置文件的位置和sql映射文件的位置
+mybatis:
+  config-location: classpath:mapper/mybatis-config.xml
+  mapper-locations: classpath:mapper/cmapper/*.xml
